@@ -11,7 +11,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
       with:
-        subscriptionId: e1046c08-7072-****-****-************
+        subscriptionId: 550d697f-588c-4958-ac1e-18db219a93eb
         resourceGroupName: AzureChallengeGitHubActionsRG
         template: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json
         parameters: storageAccountType=Standard_LRS
