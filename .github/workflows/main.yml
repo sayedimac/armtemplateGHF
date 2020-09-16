@@ -1,0 +1,17 @@
+on: [push]
+name: AzureLAb2J
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: e1046c08-7072-****-****-************
+        resourceGroupName: AzureChallengeGitHubActionsRG
+        template: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json
+        parameters: storageAccountType=Standard_LRS
